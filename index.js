@@ -1,9 +1,15 @@
 import express from "express";
 
 const app = express();
+//мідлвара для читання запросів з клієнта
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Works!");
+});
+
+app.post("auth/login", (req, res) => {
+  res.json({ success: true });
 });
 
 app.listen(4444, (err) => {
