@@ -1,9 +1,13 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
-mongoose.connect(
-  "mongodb+srv://<username>:<password>@cluster0.ics529r.mongodb.net/?retryWrites=true&w=majority"
-);
+mongoose
+  .connect(
+    "mongodb+srv://Andy:feESIVX1Rlv1bEwx@cluster0.ics529r.mongodb.net/db-contacts?retryWrites=true&w=majority"
+  )
+  .then(() => console.log("DB ok"))
+  .catch((err) => console.log("DB error", err));
+
 const app = express();
 //мідлвара для читання запросів з клієнта
 app.use(express.json());
